@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../img/star-wars.png";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-dark bg-dark bg-opacity-50 mb-4">
+		<nav className="navbar navbar-dark bg-dark bg-opacity-75 mb-4">
 			<Link to="/">
 				<div className="ms-2">
-					<img src="http://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-Logo-5.png" height={75} />
+					<img src={logo} height={75} />
 				</div>				
 			</Link>
 			

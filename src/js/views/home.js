@@ -1,8 +1,41 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useContext } from "react";
+import Cards from "../component/cards";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello World</h1>
-	</div>
-);
+export const Home = () => {
+  const { store, actions } = useContext(Context);
+
+   return (
+    <div className="container">
+      <div className="row d-flex flex-column">
+        <h1 className="text-warning py-1">Characters</h1>
+        <div className="d-flex overflow-auto">
+          {store.character.map((character, index) => (
+            <div key={index} className="col-3"> <Cards /> </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="row d-flex flex-column">
+        <h1 className="text-warning py-1">Planets</h1>
+        <div className="d-flex overflow-auto">
+          
+            {store.planets.map((planets, index) => (
+              <div key={index} className="col-3"> <Cards /> </div>
+            ))}
+          
+        </div>
+      </div>
+
+      <div className="row d-flex flex-column">
+        <h1 className="text-warning py-1">Vehicles</h1>
+        <div className="d-flex overflow-auto">
+            {store.vehicles.map((vehicles, index) => (
+              <div key={index} className="col-3"> <Cards /> </div>
+            ))}          
+        </div>
+      </div>
+    </div>
+  );
+};
