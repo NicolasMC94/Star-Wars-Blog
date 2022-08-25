@@ -11,9 +11,9 @@ export const Home = () => {
       <div className="row d-flex flex-column">
         <h1 className="text-warning py-1">Characters</h1>
         <div className="d-flex overflow-auto">
-          {store.character.map((character, index) => (
-            <div key={index} className="col-3"> <Cards /> </div>
-          ))}
+          {store.character.map((people, index) => {
+            return (<div key={index} className="col-3"> <Cards object={people}/> </div>)
+          })}
         </div>
       </div>
 
@@ -22,7 +22,7 @@ export const Home = () => {
         <div className="d-flex overflow-auto">
           
             {store.planets.map((planets, index) => (
-              <div key={index} className="col-3"> <Cards /> </div>
+              <div key={index} className="col-3"> <Cards object={planets}/> </div>
             ))}
           
         </div>
@@ -32,7 +32,7 @@ export const Home = () => {
         <h1 className="text-warning py-1">Vehicles</h1>
         <div className="d-flex overflow-auto">
             {store.vehicles.map((vehicles, index) => (
-              <div key={index} className="col-3"> <Cards /> </div>
+              <div key={index} className="col-3"> <Cards object={vehicles}/> </div>
             ))}          
         </div>
       </div>
