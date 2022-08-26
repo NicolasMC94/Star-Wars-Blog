@@ -3,41 +3,37 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
+export const Details = () => {
+  const parametro = useParams();
+  const { store, actions } = useContext(Context);
+  const character = store.character[parametro.id-1];
+  //arreglar lo del + - 1
 
-
-export const Details= () => { 
-	const parametro=useParams()
-	const { store, actions} = useContext(Context);
-	const character= store.character[parametro.id-1]
-	
-
-	return (
-		<div className="container justify-content-center">
-		<div class="card detailsCards text-center">
-			<div class="card-header">
-				Details
-			</div>
-			<div class="card-body">
-			<img id="imagenDetails" src={character?.image} style={{width: "25rem"}}/>
-				<br/>
-				<br/>
-				<h5 class="card-title">{character?.name}</h5>
-				<p class="card-text">{character?.species}</p>
-				<p class="card-text">{character?.gender}</p>
-				<p class="card-text">{character?.location.name}</p>
-				<p class="card-text">{character?.origin.name}</p>
-		 		
-		 		
-
-			</div>
-			<div class="card-footer text-center">
-				<Link to={"/"}>
-      			<button className="btn btn-link back">Back</button>
-    			</Link>
-			</div>
-		</div>
-		</div>
-
-
-	)
-}
+  return (
+    <div className="container justify-content-center">
+      <div className="card detailsCards text-center">
+        <div className="card-header">Details</div>
+        <div className="card-body">
+          <img
+            id="imagenDetails"
+            src={character?.image}
+            style={{ width: "25rem" }}
+          />
+          <br />
+          <br />
+          <h5 className="card-title">{character?.name}</h5>
+          <div className="d-flex flex-row justify-content-evenly">
+		  	<div><p className="card-text">Gender: {character?.gender}</p></div>
+		  	<div><p className="card-text">Hair color: {character?.hair_color}</p></div>
+          	<div><p className="card-text">Eye color: {character?.eye_color}</p></div>
+          </div>
+        </div>
+        <div className="card-footer text-center">
+          <Link to={"/"}>
+            <button className="btn btn-primary back">Back</button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
