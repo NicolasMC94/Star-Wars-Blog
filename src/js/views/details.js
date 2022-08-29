@@ -20,7 +20,7 @@ export const Details = () => {
               className="card-img-top"
               src={store.vehiclesurl[parametro.id]}
               alt="Card image cap"
-              style={{ heith: "100%", width: "100%" }}
+              style={{ heith: "25%", width: "25%" }}
             />
           ) : (
             <img
@@ -33,7 +33,7 @@ export const Details = () => {
                 ".jpg"
               }
               alt="Card image cap"
-              style={{ heith: "100%", width: "100%" }}
+              style={{ heith: "25%", width: "25%" }}
             />
           )}
           <br />
@@ -73,6 +73,9 @@ export const Details = () => {
               </div>
               <div>
                 <p className="card-text">Model: {character?.model}</p>
+              </div>
+              <div>
+                <p className="card-text">Manufacturer: {character?.manufacturer}</p>
               </div>
             </div>
           ) : null}

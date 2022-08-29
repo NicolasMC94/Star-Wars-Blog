@@ -30,7 +30,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addToFavorites:(name) =>{
 				setStore({favorites:[...getStore().favorites,name]})
-			}
+			},
+			deleteFavorite: (i) => {
+				const store = getStore();
+				const newList = store.favorites.filter((name, index) => index !== i);
+				setStore({ favorites: newList });
+			  },
 		},
 		};
 	  };
