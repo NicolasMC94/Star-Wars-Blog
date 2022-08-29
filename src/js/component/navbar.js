@@ -13,7 +13,7 @@ export const Navbar = () => {
         </div>
       </Link>
 
-      <div className="dropdown me-3">
+      <div className="dropdown-center me-5">
         <button
           className="dropdown-toggle btn btn-primary"
           type="button"
@@ -24,23 +24,25 @@ export const Navbar = () => {
           Favorites
         </button>
         <ul
-          className="dropdown-menu bg-warning"
+          className="dropdown-menu"
           aria-labelledby="dropdownMenuButton1"
         >
           {store.favorites.map((favorite, index) => {
-            return <p key={index}>{favorite}</p>;
-
-            <li className="d-flex">
-              <a className="dropdown-item" href="#">
-                {item}
-              </a>
-              <i
-                className="fa-solid fa-x"
-                onClick={() => {
-                  actions.deleteFavorite(index);
-                }}
-              ></i>
-            </li>;
+            return (
+              <li className="d-flex">
+                <a className="dropdown-item" href="#">
+                  {favorite}
+                </a>
+                <span
+                  className="fa-solid fa-x"
+                  onClick={() => {
+                    actions.deleteFavorite(index);
+                  }}
+                >
+                  <i className="bi bi-x-lg"></i>
+                </span>
+              </li>
+            );
           })}
         </ul>
       </div>

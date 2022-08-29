@@ -4,23 +4,25 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 const Cards = (props) => {
-  const {name} = useParams()
+  const { name } = useParams();
   const { store, actions } = useContext(Context);
-  const[single, setSingle] = useState({})
+  const [single, setSingle] = useState({});
   console.log(store, "cards");
-  useEffect(()=>{
-    if(name){
-      setSingle(props.object.filter(object => object.name === name))
+  useEffect(() => {
+    if (name) {
+      setSingle(props.object.filter((object) => object.name === name));
     }
-    
-  })
+  });
 
   let type = "";
   switch (props.type) {
     case "personas":
       type = "characters";
       return (
-        <div className="card cardSize d-inline-block rounded" style={{ width: "18rem" }}>
+        <div
+          className="card cardSize d-inline-block rounded"
+          style={{ width: "18rem" }}
+        >
           <img
             className="card-img-top rounded"
             src={
@@ -43,12 +45,16 @@ const Cards = (props) => {
                     View Info
                   </span>
                 </Link>
-                <button type="button" className="btn btn-sm btn-warning" onClick={()=>{actions.addToFavorites(props.object.name)}}>
-                <i className="bi bi-heart-fill">Corazon</i>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-warning"
+                  onClick={() => {
+                    actions.addToFavorites(props.object.name);
+                  }}
+                >
+                  <i className="bi bi-heart-fill"></i>
                 </button>
               </div>
-                
-                
             </div>
           </div>
         </div>
@@ -81,7 +87,13 @@ const Cards = (props) => {
                     View Info
                   </span>
                 </Link>
-                <button type="button" className="btn btn-sm btn-warning"onClick={()=>{actions.addToFavorites(props.object.name)}}>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-warning"
+                  onClick={() => {
+                    actions.addToFavorites(props.object.name);
+                  }}
+                >
                   <i className="bi bi-heart-fill"></i>
                 </button>
               </div>
@@ -112,8 +124,14 @@ const Cards = (props) => {
                     View Info
                   </span>
                 </Link>
-                <button type="button" className="btn btn-sm btn-warning" onClick={()=>{actions.addToFavorites(props.object.name)}}>
-                  <i className="bi bi-heart"></i>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-warning"
+                  onClick={() => {
+                    actions.addToFavorites(props.object.name);
+                  }}
+                >
+                  <i className="bi bi-heart-fill"></i>
                 </button>
               </div>
             </div>

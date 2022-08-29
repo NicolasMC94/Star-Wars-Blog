@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	let vehiclesIdArray = [4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
+	let vehiclesIdArray = [0,4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
 	return {
 	  	store: {
 			characters: [],
