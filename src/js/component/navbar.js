@@ -1,8 +1,10 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/star-wars.png";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-dark bg-dark bg-opacity-75 mb-4">
 			<Link to="/">
@@ -16,7 +18,9 @@ export const Navbar = () => {
 						Favorites
 					</button>
 					<ul className="dropdown-menu me-3">
-						<p>Hey</p>
+						{store.favorites.map((favorite, index)=>{
+							return <p key={index}>{favorite}</p>
+						})}
 					</ul>
 			</div>
 		</nav>

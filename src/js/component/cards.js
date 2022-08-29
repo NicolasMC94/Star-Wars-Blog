@@ -18,7 +18,7 @@ const Cards = (props) => {
   let type = "";
   switch (props.type) {
     case "personas":
-      type = "personas";
+      type = "characters";
       return (
         <div className="card cardSize d-inline-block rounded" style={{ width: "18rem" }}>
           <img
@@ -43,8 +43,8 @@ const Cards = (props) => {
                     View Info
                   </span>
                 </Link>
-                <button type="button" className="btn btn-sm btn-warning ">
-                <i className="bi bi-heart-fill"></i>
+                <button type="button" className="btn btn-sm btn-warning" onClick={()=>{actions.addToFavorites(props.object.name)}}>
+                <i className="bi bi-heart-fill">Corazon</i>
                 </button>
               </div>
                 
@@ -55,7 +55,7 @@ const Cards = (props) => {
       );
 
     case "planetas":
-      type = "planetas";
+      type = "planets";
       return (
         <div className="card d-inline-block rounded" style={{ width: "18rem" }}>
           <img
@@ -81,7 +81,7 @@ const Cards = (props) => {
                     View Info
                   </span>
                 </Link>
-                <button type="button" className="btn btn-sm btn-warning ">
+                <button type="button" className="btn btn-sm btn-warning"onClick={()=>{actions.addToFavorites(props.object.name)}}>
                   <i className="bi bi-heart-fill"></i>
                 </button>
               </div>
@@ -91,12 +91,12 @@ const Cards = (props) => {
       );
 
     case "vehiculos":
-      type = "vehiculos";
+      type = "vehicles";
       return (
         <div className="card d-inline-block rounded" style={{ width: "18rem" }}>
           <img
             className="card-img-top"
-            src={store.vehiclesurl[props.index]}
+            src={store.vehiclesurl[props.id]}
             alt="Card image cap"
             style={{ heith: "100%", width: "100%" }}
           />
@@ -112,8 +112,8 @@ const Cards = (props) => {
                     View Info
                   </span>
                 </Link>
-                <button type="button" className="btn btn-sm btn-warning ">
-                  <i class="bi bi-heart"></i>
+                <button type="button" className="btn btn-sm btn-warning" onClick={()=>{actions.addToFavorites(props.object.name)}}>
+                  <i className="bi bi-heart"></i>
                 </button>
               </div>
             </div>

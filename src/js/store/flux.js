@@ -2,20 +2,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 	let vehiclesIdArray = [4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
 	return {
 	  	store: {
-			character: [],
+			characters: [],
 			planets: [],
 			vehicles: [],
 			vehiclesurl: vehiclesIdArray.map(
 				(id) =>
 				  "https://starwars-visualguide.com/assets/img/vehicles/" + id + ".jpg"
 			),
+			favorites: []
 		},
 		
 		actions: {
 			fetchCharacter: () => {
 			  fetch("https://swapi.dev/api/people")
 				.then((response) => response.json())
-				.then((data) => setStore({ character: data.results }));
+				.then((data) => setStore({ characters: data.results }));
 			},
 			fetchPlanets: () => {
 			  fetch("https://swapi.dev/api/planets")
@@ -27,6 +28,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then((response)=>response.json())
 				.then((data)=>setStore({vehicles:data.results}))
 			},
+			addToFavorites:(name) =>{
+				setStore({favorites:[...getStore().favorites,name]})
+			}
 		},
 		};
 	  };
