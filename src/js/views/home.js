@@ -1,15 +1,41 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useEffect, useContext } from "react";
+import Cards from "../component/cards";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+  const { store, actions } = useContext(Context);
+
+   return (
+    <div className="container">
+      <div className="row d-flex flex-column">
+        <h1 className="text-warning py-1">Characters</h1>
+        <div className="cards d-flex ">
+          {store.characters.map((people, index) => {
+            return (<div key={index} className="col-3"> <Cards object={people} type="personas" id={index + 1}/></div>)
+          })}
+        </div>
+      </div>
+
+      <div className="row d-flex flex-column">
+        <h1 className="text-warning py-1">Planets</h1>
+        <div className="cards d-flex ">
+          
+            {store.planets.map((planets, index) => (
+              <div key={index} className="col-3"> <Cards object={planets} type="planetas" id={index + 1}/> </div>
+            ))}
+          
+        </div>
+      </div>
+
+      <div className="row d-flex flex-column">
+        <h1 className="text-warning py-1">Vehicles</h1>
+        <div className="cards d-flex ">
+            {store.vehicles.map((vehicles, index) => (
+              <div key={index} className="col-3"> <Cards object={vehicles} type="vehiculos" id={index + 1}/> </div>
+            ))}          
+        </div>
+      </div>
+    </div>
+  );
+};
