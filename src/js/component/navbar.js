@@ -13,7 +13,7 @@ export const Navbar = () => {
         </div>
       </Link>
 
-      <div className="dropdown-center me-5">
+      <div className="dropstart me-5">
         <button
           className="dropdown-toggle btn btn-primary"
           type="button"
@@ -39,7 +39,7 @@ export const Navbar = () => {
                     actions.deleteFavorite(index);
                   }}
                 >
-                  <i className="bi bi-x-lg"></i>
+                  <i className="bi bi-x-lg m-3"></i>
                 </span>
               </li>
             );

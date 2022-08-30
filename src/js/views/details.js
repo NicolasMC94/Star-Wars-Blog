@@ -11,9 +11,12 @@ export const Details = () => {
   //arreglar lo del + - 1
 
   return (
-    <div className="container justify-content-center">
-      <div className="card detailsCards text-center">
+    <div className="container">
+      
+      <div className="card detailsCards position-absolute top-50 start-50 translate-middle">
+        
         <div className="card-header">Details</div>
+
         <div className="card-body">
           {parametro.type == "vehicles" ? (
             <img
@@ -80,11 +83,13 @@ export const Details = () => {
             </div>
           ) : null}
         </div>
+        
         <div className="card-footer text-center">
           <Link to={"/"}>
-            <button className="btn btn-primary back">Back</button>
+            <button className="btn btn-primary back"><i class="bi bi-reply-fill"></i></button>
           </Link>
         </div>
+
       </div>
     </div>
   );

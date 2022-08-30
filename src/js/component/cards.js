@@ -19,11 +19,13 @@ const Cards = (props) => {
     case "personas":
       type = "characters";
       return (
+                      
         <div
-          className="card cardSize d-inline-block rounded"
+          className="card d-inline-block rounded"
           style={{ width: "18rem" }}
         >
-          <img
+          <div className="face front">  
+            <img
             className="card-img-top rounded"
             src={
               "https://starwars-visualguide.com/assets/img/characters/" +
@@ -33,7 +35,9 @@ const Cards = (props) => {
             alt="Card image cap"
             style={{ heith: "100%", width: "100%" }}
           />
-          <div className="card-body">
+          </div>
+          
+          <div className="face back">
             <h5 className="card-title">{props.object.name}</h5>
             <div className="card-text">
               <div>Gender: {props.object.gender}</div>
@@ -64,6 +68,7 @@ const Cards = (props) => {
       type = "planets";
       return (
         <div className="card d-inline-block rounded" style={{ width: "18rem" }}>
+          <div className="face front">
           <img
             src={
               props.id == 1
@@ -76,7 +81,8 @@ const Cards = (props) => {
             alt="..."
             style={{ heith: "18rem", width: "18rem%" }}
           />
-          <div className="card-body">
+          </div>
+          <div className="face back">
             <h5 className="card-title">{props.object.name}</h5>
             <div className="card-text">
               <div>Terrain: {props.object.climate}</div>
@@ -106,13 +112,15 @@ const Cards = (props) => {
       type = "vehicles";
       return (
         <div className="card d-inline-block rounded" style={{ width: "18rem" }}>
+          <div className="face front">
           <img
             className="card-img-top"
             src={store.vehiclesurl[props.id]}
             alt="Card image cap"
             style={{ heith: "100%", width: "100%" }}
           />
-          <div className="card-body">
+          </div>
+          <div className="face back">
             <h5 className="card-title">{props.object.name}</h5>
             <div className="card-text">
               <div>Cost in credits: {props.object.cost_in_credits}</div>
